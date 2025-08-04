@@ -4,19 +4,6 @@
 
 Sistema completo de gestión de pedidos desarrollado en Java con **interfaz gráfica Swing**. Este proyecto fue desarrollado para el **TALLER 1 - FUN### Extensibilidad
 
-El sistema está diseñado para ser fácilmente extensible:
-
-### Nuevas Funcionalidades
-- Sistema de autenticación más robusto
-- Integración con base de datos
-- API REST para integración con otros sistemas
-- Reportes en PDF o Excel
-- Módulo de facturación electrónica
-
-### Nuevos Tipos de Usuario
-- Operador de Logística
-- Contador/Financiero
-- Administrador del Sistema
 
 ### Mejoras Implementadas Recientemente
 - ✅ **Actualización de Stock Inteligente**: Opciones para establecer, agregar o reducir stock

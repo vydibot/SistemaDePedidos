@@ -896,8 +896,8 @@ class ClienteButtonRenderer extends JButton implements javax.swing.table.TableCe
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         setText((value == null) ? "Acción" : value.toString());
-        setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        setForeground(Color.WHITE);
+        setBackground(Color.WHITE);  // Fondo blanco
+        setForeground(Color.BLACK);  // Texto negro
         setFont(new Font("Arial", Font.BOLD, 11));
         return this;
     }
@@ -927,8 +927,8 @@ class ClienteButtonEditor extends DefaultCellEditor {
             boolean isSelected, int row, int column) {
         label = (value == null) ? "Acción" : value.toString();
         button.setText(label);
-        button.setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        button.setForeground(Color.WHITE);
+        button.setBackground(Color.WHITE);  // Fondo blanco
+        button.setForeground(Color.BLACK);  // Texto negro
         button.setFont(new Font("Arial", Font.BOLD, 11));
         isPushed = true;
         return button;
@@ -973,8 +973,8 @@ class PedidoDirectorButtonRenderer extends JButton implements javax.swing.table.
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         setText((value == null) ? "Acción" : value.toString());
-        setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        setForeground(Color.WHITE);
+        setBackground(Color.WHITE);  // Fondo blanco
+        setForeground(Color.BLACK);  // Texto negro
         setFont(new Font("Arial", Font.BOLD, 11));
         return this;
     }
@@ -1004,8 +1004,8 @@ class PedidoDirectorButtonEditor extends DefaultCellEditor {
             boolean isSelected, int row, int column) {
         label = (value == null) ? "Acción" : value.toString();
         button.setText(label);
-        button.setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        button.setForeground(Color.WHITE);
+        button.setBackground(Color.WHITE);  // Fondo blanco
+        button.setForeground(Color.BLACK);  // Texto negro
         button.setFont(new Font("Arial", Font.BOLD, 11));
         isPushed = true;
         return button;

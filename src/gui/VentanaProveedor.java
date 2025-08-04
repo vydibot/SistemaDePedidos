@@ -438,8 +438,8 @@ public class VentanaProveedor extends JFrame {
             JPanel buttonPanel = new JPanel(new FlowLayout());
             
             JButton reporteDetalladoBtn = new JButton("📊 Reporte Detallado de Stock Necesario");
-            reporteDetalladoBtn.setBackground(new Color(255, 140, 0));
-            reporteDetalladoBtn.setForeground(Color.WHITE);
+            reporteDetalladoBtn.setBackground(Color.WHITE); // Fondo blanco
+            reporteDetalladoBtn.setForeground(Color.BLACK); // Texto negro
             reporteDetalladoBtn.setFont(new Font("Arial", Font.BOLD, 12));
             reporteDetalladoBtn.addActionListener(e -> mostrarReporteStockDetallado());
             
@@ -1201,8 +1201,8 @@ public class VentanaProveedor extends JFrame {
         cerrarBtn.addActionListener(e -> dialog.dispose());
         
         JButton actualizarBtn = new JButton("🔄 Actualizar Stock");
-        actualizarBtn.setBackground(new Color(70, 130, 180));
-        actualizarBtn.setForeground(Color.WHITE);
+        actualizarBtn.setBackground(Color.WHITE); // Fondo blanco
+        actualizarBtn.setForeground(Color.BLACK); // Texto negro
         actualizarBtn.addActionListener(e -> {
             dialog.dispose();
             // Ir a la pestaña de inventario para actualizar stock
@@ -1225,13 +1225,12 @@ class ArticuloButtonRenderer extends JButton implements javax.swing.table.TableC
     public ArticuloButtonRenderer() {
         setOpaque(true);
     }
-    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         setText((value == null) ? "Acción" : value.toString());
-        setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        setForeground(Color.WHITE);
+        setBackground(Color.WHITE);  // Fondo blanco
+        setForeground(Color.BLACK);  // Texto negro
         setFont(new Font("Arial", Font.BOLD, 11));
         return this;
     }
@@ -1246,7 +1245,6 @@ class ArticuloButtonEditor extends DefaultCellEditor {
     private boolean isPushed;
     private JTable table;
     private VentanaProveedor ventanaProveedor;
-    
     public ArticuloButtonEditor(JCheckBox checkBox, JTable table, VentanaProveedor ventanaProveedor) {
         super(checkBox);
         this.table = table;
@@ -1255,19 +1253,17 @@ class ArticuloButtonEditor extends DefaultCellEditor {
         button.setOpaque(true);
         button.addActionListener(e -> fireEditingStopped());
     }
-    
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
         label = (value == null) ? "Acción" : value.toString();
         button.setText(label);
-        button.setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        button.setForeground(Color.WHITE);
+        button.setBackground(Color.WHITE);  // Fondo blanco
+        button.setForeground(Color.BLACK);  // Texto negro
         button.setFont(new Font("Arial", Font.BOLD, 11));
         isPushed = true;
         return button;
     }
-    
     @Override
     public Object getCellEditorValue() {
         if (isPushed) {
@@ -1282,7 +1278,6 @@ class ArticuloButtonEditor extends DefaultCellEditor {
         isPushed = false;
         return label;
     }
-    
     @Override
     public boolean stopCellEditing() {
         isPushed = false;

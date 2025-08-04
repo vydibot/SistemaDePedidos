@@ -987,15 +987,28 @@ public class VentanaCliente extends JFrame {
 class ButtonRenderer extends JButton implements javax.swing.table.TableCellRenderer {
     public ButtonRenderer() {
         setOpaque(true);
+        setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2)); // Borde naranja
     }
-    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
-        setText((value == null) ? "Acción" : value.toString());
-        setBackground(new Color(25, 25, 112));  // Azul marino consistente
-        setForeground(Color.WHITE);
-        setFont(new Font("Arial", Font.BOLD, 11));
+        String text = (value == null) ? "Acción" : value.toString();
+        // Íconos visuales para botones
+        if (text.contains("Agregar")) {
+            setText("➕ " + text);
+            setBackground(Color.WHITE); // Fondo blanco
+            setForeground(Color.BLACK); // Texto negro
+        } else if (text.contains("Detalles")) {
+            setText("🔍 " + text);
+            setBackground(Color.WHITE); // Fondo blanco
+            setForeground(Color.BLACK); // Texto negro
+        } else {
+            setText(text);
+            setBackground(new Color(70, 130, 180)); // Azul claro
+            setForeground(Color.WHITE);
+        }
+        setFont(new Font("Arial", Font.BOLD, 15));
+        setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2));
         return this;
     }
 }
@@ -1016,17 +1029,28 @@ class ButtonEditor extends DefaultCellEditor {
         this.ventanaCliente = ventanaCliente;
         button = new JButton();
         button.setOpaque(true);
-        button.addActionListener(e -> fireEditingStopped());
+        button.setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2));
+        button.addActionListener(evt -> fireEditingStopped());
     }
     
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
         label = (value == null) ? "Acción" : value.toString();
-        button.setText(label);
-        button.setBackground(new Color(25, 25, 112));  // Azul marino consistente
+        // Íconos visuales para botones
+        if (label.contains("Agregar")) {
+            button.setText("➕ " + label);
+            button.setBackground(new Color(34, 139, 34));
+        } else if (label.contains("Detalles")) {
+            button.setText("🔍 " + label);
+            button.setBackground(new Color(25, 25, 112));
+        } else {
+            button.setText(label);
+            button.setBackground(new Color(70, 130, 180));
+        }
         button.setForeground(Color.WHITE);
-        button.setFont(new Font("Arial", Font.BOLD, 11));
+        button.setFont(new Font("Arial", Font.BOLD, 15));
+        button.setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2));
         isPushed = true;
         return button;
     }
@@ -1097,17 +1121,20 @@ class PedidoButtonEditor extends DefaultCellEditor {
         this.ventanaCliente = ventanaCliente;
         button = new JButton();
         button.setOpaque(true);
-        button.addActionListener(e -> fireEditingStopped());
+        button.setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2));
+        button.addActionListener(evt -> fireEditingStopped());
     }
     
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
         label = (value == null) ? "Acción" : value.toString();
-        button.setText(label);
-        button.setBackground(new Color(25, 25, 112));  // Azul marino consistente
+        // Ícono visual para botón de detalles
+        button.setText("🔍 " + label);
+        button.setBackground(new Color(25, 25, 112));
         button.setForeground(Color.WHITE);
-        button.setFont(new Font("Arial", Font.BOLD, 11));
+        button.setFont(new Font("Arial", Font.BOLD, 15));
+        button.setBorder(BorderFactory.createLineBorder(new Color(255, 140, 0), 2));
         isPushed = true;
         return button;
     }
